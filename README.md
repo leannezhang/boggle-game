@@ -4,9 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Boggle is a word search game where a player find words in sequence of adjacent letters. Player gets points by building words.
 
-### Solution
-- This branch consists of solutions for the Boggle Game.
-
 ### Features
 **Board**
 - [x] 5 x 5 board
@@ -22,10 +19,7 @@ Boggle is a word search game where a player find words in sequence of adjacent l
 **Selecting Tile**
 - [x] Player can select and unselect the current tile
 - [x] Player can only select a new tile from its previous adjacent tiles
-**Extras**
-- [ ] Player can restart the game
-- [ ] Player has 3 minutes to play
-- [ ] Word is validated with the dictionary
+
 
 
 ## Getting Started
