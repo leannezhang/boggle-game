@@ -1,11 +1,10 @@
-import React from 'react'
-import Button from './Button'
+import React from "react";
+import Button from "./Button";
 
-const CurrentWord = (props) => {
-  const {currentWord, handleSubmit} = props
+const CurrentWord = props => {
+  const { currentWord, handleSubmit } = props;
 
   return (
-
     <div className="word-area">
       <div className="current-header">
         Current Word
@@ -16,9 +15,9 @@ const CurrentWord = (props) => {
 
       <Button handleSubmit={handleSubmit.bind(this, currentWord)} />
     </div>
-  )
-}
+  );
+};
 
-export default CurrentWord
+export default CurrentWord;
 
 // add protypes
