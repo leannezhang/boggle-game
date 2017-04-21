@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Button = props => {
-  const { handleSubmit, children } = props;
+  const { handleSubmit, label } = props;
 
   return (
     <button className="button" onClick={handleSubmit}>
-      {children}
+      {label}
     </button>
   );
 };

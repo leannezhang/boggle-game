@@ -140,12 +140,14 @@ class Game extends Component {
       <div>
         <div className="game-area">
           <Board board={this.state.board} handleClick={this.handleClick} />
-          <CurrentWord currentWord={this.state.currentWord} />
+          <CurrentWord
+            currentWord={this.state.currentWord}
+            label="Current Word"
+          />
           <Button
             handleSubmit={this.handleSubmit.bind(this, this.state.currentWord)}
-          >
-            SUBMIT WORD
-          </Button>
+            label="SUBMIT WORD"
+          />
         </div>
 
         <ScoreBox
