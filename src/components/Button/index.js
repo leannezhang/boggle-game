@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
 
 const Button = props => {
-  const { handleSubmit } = props;
+  const { handleSubmit, children } = props;
 
   return (
     <button className="button" onClick={handleSubmit}>
-      SUBMIT WORD
+      {children}
     </button>
   );
 };
+
 export default Button;
