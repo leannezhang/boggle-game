@@ -7,23 +7,6 @@
     width: 300px;
 }
 
-.orange-area {
-    background: #FFF3E0;
-    padding: 15px 15px 5px 15px;
-    width: 300px;
-    margin: 0px;
-    height: 310px;
-}
-
-.row {
-    width: 300px;
-    display: block;
-}
-
-.row button:last-child {
-    margin-right: 0;
-}
-
 .word-area {
     padding: 30px 15px;
     width: 100%;
@@ -90,53 +73,6 @@ h2 {
     top: -5px;
     font-size: 25px;
 }
-
-/* Tile States */
-.row button {
-    width: 52px;
-    height: 52px;
-    border-radius: 5px;
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    -webkit-transition: background 0.5s; /* Safari */
-    transition: background 0.5s;
-    outline: none;
-    text-transform: uppercase;
-}
-
-.tile {
-    background: #fff;
-    border: solid 1px #757575;
-    box-shadow: 2px 2px 5px rgba(255, 204, 128, .25);
-    font-size: 24px;
-    font-weight: normal;
-    text-align: center;
-    color: #18252e;
-    width: 100%;
-}
-
-.tile:hover {
-    background: #fcf6ea;
-    cursor: pointer;
-}
-
-.tile-selected {
-    background: #FF9800;
-    border: solid 1px #FB8C00;
-    box-shadow: inset 2px 2px 5px rgba(223, 121, 10, .7);
-    width: 100%;
-    font-size: 24px;
-    font-weight: normal;
-    text-align: center;
-    color: #ffffff;
-}
-
-.tile-selected:hover {
-    background: #EF6C00;
-    cursor: pointer;
-}
-
 
 /* Current Word */
 .current-header {
