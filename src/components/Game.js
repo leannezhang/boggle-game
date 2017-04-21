@@ -1,9 +1,11 @@
-import React, { Component } from "react";
-import { shuffleBoard, copyBoard } from "./Common/shuffleBoard";
-import Board from "./Board";
-import ScoreBox from "./ScoreBox";
-import CurrentWord from "./CurrentWord";
-import "./Game.css";
+import React, { Component } from 'react';
+import { shuffleBoard, copyBoard } from './Common/shuffleBoard';
+import Board from './Board';
+import ScoreBox from './ScoreBox';
+import CurrentWord from './CurrentWord';
+import Button from './Button';
+import './Game.css';
+
 class Game extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +24,7 @@ class Game extends Component {
     ];
     this.state = {
       board: this.initBoard,
-      currentWord: "",
+      currentWord: '',
       currentWordPosition: [],
       wordList: {},
       totalScore: 0
@@ -125,7 +127,7 @@ class Game extends Component {
 
       this.setState({
         wordList: mergeWordList,
-        currentWord: "",
+        currentWord: '',
         currentWordPosition: [],
         totalScore: totalScore,
         board: clearedBoard
@@ -138,10 +140,12 @@ class Game extends Component {
       <div>
         <div className="game-area">
           <Board board={this.state.board} handleClick={this.handleClick} />
-          <CurrentWord
-            currentWord={this.state.currentWord}
-            handleSubmit={this.handleSubmit}
-          />
+          <CurrentWord currentWord={this.state.currentWord} />
+          <Button
+            handleSubmit={this.handleSubmit.bind(this, this.state.currentWord)}
+          >
+            SUBMIT WORD
+          </Button>
         </div>
 
         <ScoreBox
