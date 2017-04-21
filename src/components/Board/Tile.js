@@ -4,9 +4,9 @@ const Tile = props => {
   const { selected, letter, handleClick } = props;
 
   return (
-    <div className={selected ? "tile-selected" : "tile"} onClick={handleClick}>
-      <div>{letter}</div>
-    </div>
+    <button className={selected ? "tile-selected" : "tile"} onClick={handleClick}>
+      {letter}
+    </button>
   );
 };
 

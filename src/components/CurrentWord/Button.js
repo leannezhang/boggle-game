@@ -4,9 +4,9 @@ const Button = props => {
   const { handleSubmit } = props;
 
   return (
-    <div className="button" onClick={handleSubmit}>
-      <div>SUBMIT WORD</div>
-    </div>
+    <button className="button" onClick={handleSubmit}>
+      SUBMIT WORD
+    </button>
   );
 };
 export default Button;
