@@ -1,4 +1,5 @@
 import React from 'react';
+import './CurrentWord.css';
 
 const CurrentWord = props => {
   const { currentWord, label } = props;
