@@ -1,4 +1,4 @@
-import {TileData} from '../../data'
+import TileData from './TileData';
 
 const facesNum = 6
 const boardLength = 5

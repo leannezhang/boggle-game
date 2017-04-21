@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { shuffleBoard, copyBoard } from "./Common/shuffleBoard";
+import { shuffleBoard, copyBoard } from "../common/shuffleBoard";
 import Board from "./Board";
 import ScoreBox from "./ScoreBox";
 import CurrentWord from "./CurrentWord";
