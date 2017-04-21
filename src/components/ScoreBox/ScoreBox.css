@@ -1,0 +1,58 @@
+
+/* Score Area */
+
+.score-box {
+    width: 200px;
+    border-radius: 5px;
+    border: solid 1px #EEEEEE;
+    float: right;
+    margin: 15px;
+    padding: 20px;
+}
+
+.word-list {
+    width: 100%;
+    height: 408px;
+}
+
+.total-score {
+    border-top: 1px solid #E0E0E0;
+    padding-top: 25px;
+    width: 100%;
+}
+
+.words {
+    width: 50%;
+    float: left;
+}
+
+.scores {
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+
+.score-box li {
+    padding-top: 15px;
+    list-style-type: none;
+}
+
+.total-score h2 {
+    text-align: left;
+}
+
+h2 {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    display: inline;
+    color: #616161;
+}
+
+.total-score span {
+    text-align: right;
+    float: right;
+    position: relative;
+    top: -5px;
+    font-size: 25px;
+}

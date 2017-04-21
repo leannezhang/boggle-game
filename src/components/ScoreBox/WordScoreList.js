@@ -1,14 +1,15 @@
-import React from "react";
-import TotalScore from "./TotalScore";
+import React from 'react';
+import TotalScore from './TotalScore';
 const WordScoreList = props => {
-  const { words, scores, totalScore } = props;
+  const { wordScoreList, totalScore } = props;
+  const words = Object.keys(wordScoreList);
 
   const wordsList = words.map(function(word, index) {
-    return <li key={word.toString() + index}>{word}</li>;
+    return <li key={index}>{word}</li>;
   });
-
+  const scores = Object.values(wordScoreList);
   const scoresList = scores.map(function(score, index) {
-    return <li key={score.toString() + index}>{score}</li>;
+    return <li key={index}>{score}</li>;
   });
 
   return (
@@ -23,7 +24,7 @@ const WordScoreList = props => {
           {scoresList}
         </div>
       </div>
-      <TotalScore totalScore={totalScore} />
+      <TotalScore totalScore={totalScore} label="Total Score" />
     </div>
   );
 };

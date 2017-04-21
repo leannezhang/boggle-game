@@ -1,0 +1,12 @@
+/* Game Area */
+
+.game-area {
+    padding: 20px;
+    margin:0;
+    float: left;
+    width: 300px;
+}
+
+.clear {
+    clear: both;
+}
