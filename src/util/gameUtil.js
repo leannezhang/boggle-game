@@ -82,3 +82,35 @@ export const copyBoard = board => {
   });
   return copiedBoard;
 };
+
+export const isTileEqual = (tile1, tile2) => {
+  if (!tile1 || !tile2) return false;
+  return tile1.rowId === tile2.rowId && tile1.columnId === tile2.columnId;
+};
+
+export const isAdjacent = (tile1, tile2) => {
+  if (!tile1 || !tile2) return false;
+  if (isTileEqual(tile1, tile2)) {
+    return false;
+  }
+
+  const colDiff = Math.abs(tile1.columnId - tile2.columnId);
+  const rowDiff = Math.abs(tile1.rowId - tile2.rowId);
+  if (colDiff <= 1 && rowDiff <= 1) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export const calculateScore = word => {
+  const score = word.length - 2;
+
+  if (score < 1) {
+    return 1;
+  }
+  if (score > 6) {
+    return 6;
+  }
+  return score;
+};
