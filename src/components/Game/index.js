@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { shuffleBoard, copyBoard } from './Common/shuffleBoard';
-import Board from './Board';
-import ScoreBox from './ScoreBox';
-import CurrentWord from './CurrentWord';
-import Button from './Button';
-import TileData from '../data/TileData';
+import { shuffleBoard, copyBoard } from '../../util/shuffleBoard';
+import Board from '../Board';
+import ScoreBox from '../ScoreBox';
+import CurrentWord from '../CurrentWord';
+import Button from '../Button';
+import TileData from '../../data/TileData';
 import './Game.css';
 
 export default class Game extends Component {
