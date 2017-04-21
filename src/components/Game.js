@@ -4,31 +4,39 @@ import Board from './Board';
 import ScoreBox from './ScoreBox';
 import CurrentWord from './CurrentWord';
 import Button from './Button';
+import TileData from '../data/TileData';
 import './Game.css';
 
-class Game extends Component {
+export default class Game extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.initBoard = shuffleBoard();
-    this.surroundingCells = [
-      { r: -1, c: -1 },
-      { r: -1, c: 0 },
-      { r: -1, c: 1 },
-      { r: 0, c: -1 },
-      { r: 0, c: 1 },
-      { r: 1, c: -1 },
-      { r: 1, c: 0 },
-      { r: 1, c: 1 }
-    ];
     this.state = {
       board: this.initBoard,
       currentWord: '',
       currentWordPosition: [],
-      wordList: {},
-      totalScore: 0
+      wordScoreList: {}
     };
+  }
+  isTileEqual(tile1, tile2) {
+    if (!tile1 || !tile2) return false;
+    return tile1.rowId === tile2.rowId && tile1.columnId === tile2.columnId;
+  }
+  isAdjacent(tile1, tile2) {
+    if (!tile1 || !tile2) return false;
+    if (this.isTileEqual(tile1, tile2)) {
+      return false;
+    }
+
+    const colDiff = Math.abs(tile1.columnId - tile2.columnId);
+    const rowDiff = Math.abs(tile1.rowId - tile2.rowId);
+    if (colDiff <= 1 && rowDiff <= 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
   // 1. click on the tile
   // 2. update tile selected to true.
@@ -40,76 +48,57 @@ class Game extends Component {
   // 2.6 Mutate the state
   // 3. render the board with updated tile so it renders as active
   handleClick(rowId, columnId) {
-    const selected = this.state.board[rowId][columnId].selected;
-    let currentWord = this.state.currentWord;
-    let newCurrentWordPosition = this.state.currentWordPosition.slice();
-    const lastLetter =
-      newCurrentWordPosition[newCurrentWordPosition.length - 1];
-
-    if (
-      this._tileClickedIsLastSelected(selected, rowId, columnId, lastLetter)
-    ) {
-      const newBoard = copyBoard(this.state.board);
-      newBoard[rowId][columnId].selected = false;
-      currentWord = this.state.currentWord.slice(0, -1);
-      newCurrentWordPosition = newCurrentWordPosition.slice(0, -1);
-
-      this.setState({
-        currentWord,
-        board: newBoard,
-        currentWordPosition: newCurrentWordPosition
-      });
-    } else if (
-      this._surroundingTileIsClicked(selected, rowId, columnId, lastLetter)
-    ) {
-      const newBoard = copyBoard(this.state.board);
-      newBoard[rowId][columnId].selected = true;
-      newCurrentWordPosition.push({ rowId: rowId, columnId: columnId });
-      currentWord = this.state.currentWord.concat(
-        newBoard[rowId][columnId].letter
-      );
-
-      this.setState({
-        currentWord,
-        board: newBoard,
-        currentWordPosition: newCurrentWordPosition
-      });
-    }
-  }
-
-  _tileClickedIsLastSelected(selected, rowId, columnId, lastLetter) {
-    return (
-      selected && rowId === lastLetter.rowId && columnId === lastLetter.columnId
-    );
-  }
-
-  _surroundingTileIsClicked(selected, rowId, columnId, lastLetter) {
-    return !selected && this._isSurroundingTile(rowId, columnId, lastLetter);
-  }
-
-  _isSurroundingTile(rowId, columnId, lastLetter) {
-    if (!lastLetter) {
-      return true;
-    }
-    return this.surroundingCells.some(function(offset) {
-      if (
-        rowId === offset.r + lastLetter.rowId &&
-        columnId === offset.c + lastLetter.columnId
-      ) {
-        return true;
+    const selectedTile = this.state.board[rowId][columnId];
+    const lastSelectedTile = this.state.currentWordPosition[
+      this.state.currentWordPosition.length - 1
+    ];
+    if (selectedTile.selected) {
+      // Check if selectedTile is last tile
+      if (this.isTileEqual(selectedTile, lastSelectedTile)) {
+        // Unselected selectedTile and remove from currentWordPosition
+        // Also update the board to set the tile to unselected
+        const newBoard = copyBoard(this.state.board);
+        newBoard[rowId][columnId].selected = false;
+        this.setState({
+          currentWord: this.state.currentWord.slice(0, -1),
+          board: newBoard,
+          currentWordPosition: this.state.currentWordPosition.slice(0, -1)
+        });
       }
-      return false;
-    });
+    } else {
+      if (
+        !lastSelectedTile || this.isAdjacent(selectedTile, lastSelectedTile)
+      ) {
+        // Select the tile
+        const newBoard = copyBoard(this.state.board);
+        newBoard[rowId][columnId].selected = true;
+        this.setState({
+          // update current word with selected tile
+          currentWord: this.state.currentWord.concat(
+            newBoard[rowId][columnId].letter
+          ),
+          // update board
+          board: newBoard,
+          // update current word position with selected tile position
+          currentWordPosition: this.state.currentWordPosition.concat({
+            rowId: rowId,
+            columnId: columnId
+          })
+        });
+      }
+    }
   }
 
   calculateScore(word) {
-    if (word.length >= 3 && word.length <= 8) {
-      return word.length - 2;
-    } else if (word.length > 8) {
-      return 6;
-    } else {
+    const score = word.length - 2;
+
+    if (score < 1) {
       return 1;
     }
+    if (score > 6) {
+      return 6;
+    }
+    return score;
   }
 
   // 1. Submit a current word
@@ -118,21 +107,21 @@ class Game extends Component {
   // 4. Clear board
 
   handleSubmit(word) {
-    const mergeWordList = Object.assign({}, this.state.wordList);
-
-    if (word.length > 0 && !mergeWordList[word]) {
-      mergeWordList[word] = this.calculateScore(word);
-      const totalScore = this.state.totalScore + mergeWordList[word];
-      const clearedBoard = this.initBoard;
-
-      this.setState({
-        wordList: mergeWordList,
-        currentWord: '',
-        currentWordPosition: [],
-        totalScore: totalScore,
-        board: clearedBoard
-      });
+    // Check if word is valid
+    if (word.length < 3 || this.state.wordScoreList[word]) {
+      return;
     }
+    const score = this.calculateScore(word);
+
+    const clearedBoard = this.initBoard;
+
+    this.setState({
+      // wordScoreList: Object.assign(this.state.wordScoreList, {[word]: score}),
+      wordScoreList: { ...this.state.wordScoreList, [word]: score },
+      currentWord: '',
+      currentWordPosition: [],
+      board: clearedBoard
+    });
   }
 
   render() {
@@ -151,8 +140,12 @@ class Game extends Component {
         </div>
 
         <ScoreBox
-          wordList={this.state.wordList}
-          totalScore={this.state.totalScore}
+          wordScoreList={this.state.wordScoreList}
+          totalScore={Object.values(
+            this.state.wordScoreList
+          ).reduce((totalScore, next) => {
+            return totalScore + next;
+          }, 0)}
         />
 
         <div className="clear" />
@@ -161,5 +154,3 @@ class Game extends Component {
     );
   }
 }
-
-export default Game;
