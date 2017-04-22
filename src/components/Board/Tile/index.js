@@ -2,17 +2,15 @@ import React from 'react';
 import './Tile.css';
 
 const Tile = props => {
-  // TODO: Destructure Tile props
-  const { selected, letter, handleClick } = props;
-
+  // TODO 1) : Destructure Tile props
+  const selected = false;
   return (
     <button
       className={selected ? 'tile-selected' : 'tile'}
-      // TODO: Pass button onClick callback as props
-      onClick={handleClick}
+      // TODO 5): Pass button onClick callback as props
     >
-      {/* TODO: Render letter */}
-      {letter}
+      {/* TODO 1: Render letter */}
+      A
     </button>
   );
 };

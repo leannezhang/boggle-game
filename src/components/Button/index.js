@@ -2,17 +2,13 @@ import React from 'react';
 import './Button.css';
 
 const Button = props => {
-  // TODO: Destructure Button props
-  const { handleSubmit, label } = props;
-
+  // TODO 1) : Destructure Button props
   return (
-    <button
-      className="button"
-      // TODO: Handle on click callback
-      onClick={handleSubmit}
+    <button className="button"
+      // TODO 5) : Handle on click callback
     >
-      {/* TODO: Render button label */}
-      {label}
+      {/* TODO 1): Render button label */}
+      SUBMIT
     </button>
   );
 };

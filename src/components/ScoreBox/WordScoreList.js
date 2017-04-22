@@ -2,35 +2,26 @@ import React from 'react';
 import TotalScore from './TotalScore';
 const WordScoreList = props => {
   // TODO: Destructure WordScoreList props
-  const { wordScoreList, totalScore } = props;
-  const words = Object.keys(wordScoreList);
-
-  const wordsList = words.map(function(word, index) {
-    return <li key={index}>{word}</li>;
-  });
-  const scores = Object.values(wordScoreList);
-  const scoresList = scores.map(function(score, index) {
-    return <li key={index}>{score}</li>;
-  });
-
   return (
     <div>
       <div className="word-list">
         <div className="words">
           <h2>WORD</h2>
-          {/* TODO: Render wordList array */}
-          {wordsList}
+          {/* TODO: 2) Render wordList array */}
+          <li>Hello</li>
+          <li>React</li>
+          <li>Vancouver</li>
         </div>
         <div className="scores">
           <h2>SCORE</h2>
-          {/* TODO: Render scoreList array */}
-          {scoresList}
+          {/* TODO: 2) Render scoreList array */}
+          <li>3</li>
+          <li>3</li>
+          <li>7</li>
         </div>
       </div>
       <TotalScore
-        // TODO: Pass TotalScore props
-        totalScore={totalScore}
-        label="Total Score"
+        // TODO: 2) Pass TotalScore props
       />
     </div>
   );

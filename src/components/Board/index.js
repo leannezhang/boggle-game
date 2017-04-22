@@ -3,26 +3,19 @@ import Tile from './Tile';
 import './Board.css';
 
 const Board = props => {
-  // TODO: Destructure Board props
-  const { board, handleClick } = props;
+  // TODO 1): Destructure Board props
+  const { board } = props;
   return (
     <div className="orange-area">
       {board.map((row, index) => {
         return (
           <div className="row" key={index}>
-            {row.map(tile => {
+            {row.map((tile, index) => {
               return (
                 <Tile
-                  // TODO: Pass props to describe state of the tile
-                  selected={tile.selected}
-                  letter={tile.letter}
-                  key={tile.columnId}
-                  // TODO: Pass callback function props when user clicks on Tile
-                  handleClick={handleClick.bind(
-                    this,
-                    tile.rowId,
-                    tile.columnId
-                  )}
+                  // TODO 1): Pass props to describe state of the tile
+                  key={index}
+                  // TODO 5): Pass callback function props when user clicks on Tile
                 />
               );
             })}
