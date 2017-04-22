@@ -8,6 +8,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="header">
+          {/* TODO: Add Boggle Image */}
           <img src={logo} className="header-logo" alt="logo" />
         </div>
         <Game />
