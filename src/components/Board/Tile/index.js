@@ -10,7 +10,6 @@ const Tile = props => {
       // TODO 4): Pass button onClick callback as props
     >
       {/* TODO 1: Render letter */}
-      A
     </button>
   );
 };
