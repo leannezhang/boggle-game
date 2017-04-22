@@ -2,6 +2,7 @@ import React from 'react';
 import TotalScore from './TotalScore';
 const WordScoreList = props => {
   // TODO: Destructure WordScoreList props
+
   return (
     <div>
       <div className="word-list">
@@ -21,7 +22,7 @@ const WordScoreList = props => {
         </div>
       </div>
       <TotalScore
-        // TODO: 1) Pass TotalScore props
+        // TODO: 1 & 3) Pass TotalScore props
       />
     </div>
   );

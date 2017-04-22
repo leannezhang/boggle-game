@@ -14,6 +14,10 @@ const Board = props => {
               return (
                 <Tile
                   // TODO 1): Pass props to describe state of the tile
+                  columnId={tile.columnId}
+                  rowId={tile.rowId}
+                  letter={tile.letter}
+                  selected={tile.selected}
                   key={index}
                   // TODO 5): Pass callback function props when user clicks on Tile
                 />

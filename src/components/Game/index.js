@@ -16,8 +16,7 @@ export default class Game extends Component {
   constructor(props) {
     super(props);
     this.initBoard = shuffleBoard();
-    // TODO 1): Set data props
-    // TODO 5): Change data props to states
+    // TODO 5): Set initial states
     this.state = {
       board: this.initBoard,
     };
@@ -43,15 +42,17 @@ export default class Game extends Component {
           />
           <CurrentWord
             // TODO 1): Pass CurrentWord props
+            currentWord={'Vancouver'}
           />
           <Button
             // TODO 1): Pass Button Prop
+            label={'SUBMIT'}
             // TODO 5): Pass Button Callback
           />
         </div>
 
         <ScoreBox
-          // TODO 1): Pass ScoreBox Props
+          // TODO 2): Pass ScoreBox Props
           // TODO 4): Calculate Score using reduce
         />
         {/* Makes Board and ScoreBox be side by side */}

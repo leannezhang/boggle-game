@@ -8,7 +8,7 @@ const ScoreBox = props => {
   return (
     <div className="score-box">
       <WordScoreList
-        // TODO: Pass all WordScoreList props
+        // TODO 2: Pass all WordScoreList props
       />
     </div>
   );
