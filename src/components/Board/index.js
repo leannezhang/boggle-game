@@ -13,9 +13,9 @@ const Board = props => {
             {row.map((tile, index) => {
               return (
                 <Tile
-                  // TODO: Pass props to describe state of the tile
+                  // TODO 1): Pass props to describe state of the tile
                   key={index}
-                  // TODO: Pass callback function props when user clicks on Tile
+                  // TODO 5): Pass callback function props when user clicks on Tile
                 />
               );
             })}

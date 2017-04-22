@@ -16,7 +16,8 @@ export default class Game extends Component {
   constructor(props) {
     super(props);
     this.initBoard = shuffleBoard();
-    // TODO: Init state with the board
+    // TODO 1): Set data props
+    // TODO 5): Change data props to states
     this.state = {
       board: this.initBoard,
     };
@@ -24,12 +25,12 @@ export default class Game extends Component {
 
   // Tile Clicked
   handleClick(rowId, columnId) {
-    // TODO: Handle tile click to select / unselect tile.
+    // TODO 5): Handle tile click to select / unselect tile.
   }
 
   // Adds Current Word to the Word List
   handleSubmit(word) {
-    // TODO: Check if Current Word is valid
+    // TODO 5): Check if Current Word is valid
   }
 
   render() {
@@ -38,18 +39,20 @@ export default class Game extends Component {
         <div className="game-area">
           <Board
             board={this.state.board}
-            // TODO: Pass Board onClick callback as props
+            // TODO 5): Pass Board onClick callback as props
           />
           <CurrentWord
-            // TODO: Pass CurrentWord props
+            // TODO 1): Pass CurrentWord props
           />
           <Button
-            // TODO: Pass Button Props and Button Callback
+            // TODO 1): Pass Button Prop
+            // TODO 5): Pass Button Callback
           />
         </div>
 
         <ScoreBox
-          // TODO: Pass ScoreBox Props
+          // TODO 1): Pass ScoreBox Props
+          // TODO 4): Calculate Score using reduce
         />
         {/* Makes Board and ScoreBox be side by side */}
         <div className="clear" />
