@@ -3,7 +3,7 @@ import Tile from './Tile';
 import './Board.css';
 
 const Board = props => {
-  // TODO: Destructure Board props
+  // TODO 1): Destructure Board props
   const { board } = props;
   return (
     <div className="orange-area">
