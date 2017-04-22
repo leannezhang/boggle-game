@@ -3,12 +3,12 @@ import WordScoreList from './WordScoreList';
 import './ScoreBox.css';
 
 const ScoreBox = props => {
-  // TODO: Destructure ScoreBox props
+  // TODO 2): Destructure ScoreBox props
 
   return (
     <div className="score-box">
       <WordScoreList
-        // TODO: Pass all WordScoreList props
+        // TODO 2): Pass all WordScoreList props
       />
     </div>
   );
