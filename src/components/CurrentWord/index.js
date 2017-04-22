@@ -2,6 +2,7 @@ import React from 'react';
 import './CurrentWord.css';
 
 const CurrentWord = props => {
+  // TODO: Destructure CurrentWord props
   const { currentWord, label } = props;
 
   return (

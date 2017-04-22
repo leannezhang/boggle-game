@@ -15,9 +15,9 @@ import './Game.css';
 export default class Game extends Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // TODO: Init board with random tiles
     this.initBoard = shuffleBoard();
+    // TODO: Init state with the board
     this.state = {
       board: this.initBoard,
       currentWord: '',
@@ -36,6 +36,7 @@ export default class Game extends Component {
   // 2.6 Mutate the state
   // 3. render the board with updated tile so it renders as active
   handleClick(rowId, columnId) {
+    // TODO: Handle tile click to select / unselect tile.
     const selectedTile = this.state.board[rowId][columnId];
     const lastSelectedTile = this.state.currentWordPosition[
       this.state.currentWordPosition.length - 1
@@ -75,19 +76,21 @@ export default class Game extends Component {
     }
   }
 
-  // 1. Submit a current word
-  // 2. Create a wordlist
-  // 3. Calculate total score
-  // 4. Clear board
+  // Adds Current Word to the Word List
   handleSubmit(word) {
+    // TODO: Check if Current Word is valid
+
     // Check if word is valid
     if (word.length < 3 || this.state.wordScoreList[word]) {
       return;
     }
+    // TODO: Calculate score
     const score = calculateScore(word);
 
+    // TODO: Unselect all tiles.
     const clearedBoard = this.initBoard;
 
+    // TODO: Add to the Word List
     this.setState({
       // wordScoreList: Object.assign(this.state.wordScoreList, {[word]: score}),
       wordScoreList: { ...this.state.wordScoreList, [word]: score },
@@ -101,18 +104,25 @@ export default class Game extends Component {
     return (
       <div>
         <div className="game-area">
-          <Board board={this.state.board} handleClick={this.handleClick} />
+          <Board
+            // TODO: Pass Board Props
+            board={this.state.board}
+            handleClick={this.handleClick.bind(this)}
+          />
           <CurrentWord
+            // TODO: Pass CurrentWord props
             currentWord={this.state.currentWord}
             label="Current Word"
           />
           <Button
+            // TODO: Pass Button Props and Button Callback
             handleSubmit={this.handleSubmit.bind(this, this.state.currentWord)}
             label="SUBMIT WORD"
           />
         </div>
 
         <ScoreBox
+          // TODO: Pass ScoreBox Props
           wordScoreList={this.state.wordScoreList}
           totalScore={Object.values(
             this.state.wordScoreList
@@ -120,7 +130,7 @@ export default class Game extends Component {
             return totalScore + next;
           }, 0)}
         />
-
+        {/* Makes Board and ScoreBox be side by side */}
         <div className="clear" />
 
       </div>

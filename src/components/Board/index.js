@@ -3,6 +3,7 @@ import Tile from './Tile';
 import './Board.css';
 
 const Board = props => {
+  // TODO: Destructure Board props
   const { board, handleClick } = props;
   return (
     <div className="orange-area">
@@ -12,6 +13,8 @@ const Board = props => {
             {row.map(tile => {
               return (
                 <Tile
+                  // TODO: Pass props to describe state of the tile
+                  // Pass callback function props when user clicks on Tile
                   selected={tile.selected}
                   letter={tile.letter}
                   key={tile.columnId}

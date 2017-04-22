@@ -1,6 +1,7 @@
 import React from 'react';
 import TotalScore from './TotalScore';
 const WordScoreList = props => {
+  // TODO: Destructure WordScoreList props
   const { wordScoreList, totalScore } = props;
   const words = Object.keys(wordScoreList);
 
