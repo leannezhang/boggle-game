@@ -3,16 +3,14 @@ import './Tile.css';
 
 const Tile = props => {
   // TODO: Destructure Tile props
-  const { selected, letter, handleClick } = props;
-
+  const selected = false;
   return (
     <button
       className={selected ? 'tile-selected' : 'tile'}
       // TODO: Pass button onClick callback as props
-      onClick={handleClick}
     >
       {/* TODO: Render letter */}
-      {letter}
+      A
     </button>
   );
 };

@@ -3,17 +3,15 @@ import './CurrentWord.css';
 
 const CurrentWord = props => {
   // TODO: Destructure CurrentWord props
-  const { currentWord, label } = props;
-
   return (
     <div className="word-area">
       <div className="current-header">
         {/* TODO: Render label */}
-        {label}
+        Current Word
       </div>
       <div className="current-word">
         {/* TODO: Render currentWord */}
-        {currentWord}
+        REACT
       </div>
     </div>
   );
