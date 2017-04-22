@@ -6,17 +6,21 @@ Boggle is a word search game where a player find words in sequence of adjacent l
 
 # Solution Branch
 ### Features
+
 **Board**
 - [x] 5 x 5 board
 - [x] Each tile is randomized
 - [x] Board is shuffled
+
 **Submitting Word**
 - [x] Player selects a sequences of tiles to build a word, and it's shown in the Current Word section
 - [x] Submit a current word will add to the word list
 - [x] Duplicated words cannot be submitted
 - [x] Submitting a word clears the current word and tiles
+
 **Score**
 - [x] Score is calculated based on the number of letters
+
 **Selecting Tile**
 - [x] Player can select and unselect the current tile
 - [x] Player can only select a new tile from its previous adjacent tiles
@@ -33,6 +37,9 @@ Boggle is a word search game where a player find words in sequence of adjacent l
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+install packages
 
 ### `npm start`
 
