@@ -22,7 +22,7 @@ const WordScoreList = props => {
         </div>
       </div>
       <TotalScore
-        // TODO: 1 & 3) Pass TotalScore props
+        // TODO: 3) Pass TotalScore props
       />
     </div>
   );
