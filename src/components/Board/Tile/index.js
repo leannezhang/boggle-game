@@ -7,7 +7,7 @@ const Tile = props => {
   return (
     <button
       className={selected ? 'tile-selected' : 'tile'}
-      // TODO 5): Pass button onClick callback as props
+      // TODO 4): Pass button onClick callback as props
     >
       {/* TODO 1: Render letter */}
       A

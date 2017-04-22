@@ -15,7 +15,7 @@ const Board = props => {
                 <Tile
                   // TODO 1): Pass props to describe state of the tile
                   key={index}
-                  // TODO 5): Pass callback function props when user clicks on Tile
+                  // TODO 4): Pass callback function props when user clicks on Tile
                 />
               );
             })}
