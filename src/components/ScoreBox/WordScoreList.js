@@ -18,14 +18,20 @@ const WordScoreList = props => {
       <div className="word-list">
         <div className="words">
           <h2>WORD</h2>
+          {/* TODO: Render wordList array */}
           {wordsList}
         </div>
         <div className="scores">
           <h2>SCORE</h2>
+          {/* TODO: Render scoreList array */}
           {scoresList}
         </div>
       </div>
-      <TotalScore totalScore={totalScore} label="Total Score" />
+      <TotalScore
+        // TODO: Pass TotalScore props
+        totalScore={totalScore}
+        label="Total Score"
+      />
     </div>
   );
 };

@@ -11,7 +11,7 @@ const Button = props => {
       // TODO: Handle on click callback
       onClick={handleSubmit}
     >
-      {/* TODO: render button label */}
+      {/* TODO: Render button label */}
       {label}
     </button>
   );

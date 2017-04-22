@@ -11,6 +11,7 @@ class App extends Component {
           {/* TODO: Add Boggle Image */}
           <img src={logo} className="header-logo" alt="logo" />
         </div>
+        {/* TODO: Render Game component */}
         <Game />
       </div>
     );
