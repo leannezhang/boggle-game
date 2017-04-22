@@ -20,6 +20,7 @@
     text-align: center;
     color: #18252e;
     width: 100%;
+    user-select: none;
 }
 
 .tile:hover {
